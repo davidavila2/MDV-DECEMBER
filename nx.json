@@ -4,8 +4,7 @@
     "defaultBase": "main"
   },
   "cli": {
-    "defaultCollection": "@nrwl/angular",
-    "packageManager": "yarn"
+    "analytics": false
   },
   "implicitDependencies": {
     "package.json": {
