@@ -15,7 +15,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@mdv-december/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@mdv-december/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@mdv-december/core-data": ["libs/core-data/src/index.ts"],
+      "@mdv-december/core-state": ["libs/core-state/src/index.ts"],
+      "@mdv-december/material": ["libs/material/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
