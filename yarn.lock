@@ -1665,6 +1665,13 @@
     optional "0.1.4"
     tslib "2.3.1"
 
+"@ngrx/component-store@~13.0.0":
+  version "13.0.1"
+  resolved "https://registry.yarnpkg.com/@ngrx/component-store/-/component-store-13.0.1.tgz#5edbeeba94938db1979fd794cf9d15b1ade1234e"
+  integrity sha512-rlyXhyWtTbbJDb9se57C9CEMVLDA6zU/aauMz0vvNwcKMGX884D+DPXb1XeGmjS5/2Wgs63KgMsVYfd2lEyHVg==
+  dependencies:
+    tslib "^2.0.0"
+
 "@ngrx/effects@^13.0.1":
   version "13.0.1"
   resolved "https://registry.yarnpkg.com/@ngrx/effects/-/effects-13.0.1.tgz#93f78c54959f747fa344744d365a59dfce978285"
@@ -5863,6 +5870,13 @@ jasmine-marbles@~0.8.4:
   version "0.8.4"
   resolved "https://registry.yarnpkg.com/jasmine-marbles/-/jasmine-marbles-0.8.4.tgz#67f840012634c453e986fcf48860d6ea92ae144e"
   integrity sha512-zbtuXABpSWrSswYPiZ5m6EQhluNmKcRQs+82AqJHSN+PMx3ASpDmTvRfqe9Pk2hPh9Ge5zrzOsorIlw3kdwTXQ==
+  dependencies:
+    lodash "^4.17.20"
+
+jasmine-marbles@~0.9.1:
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/jasmine-marbles/-/jasmine-marbles-0.9.1.tgz#1548110e8c3a64276554443275bcc7fef2a12c74"
+  integrity sha512-25Chb942ory0DlHmVujMsA/rMNLhsmXkEVegrXJZL+T9jZGDZyFTnH9Eb91/WIfNFuXwtGms7KzFNbuR8GIrqw==
   dependencies:
     lodash "^4.17.20"
 

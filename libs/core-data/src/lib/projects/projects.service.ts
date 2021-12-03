@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Project } from '@mdv-december/core-data';
-// import { Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 
 const BASE_URL = 'https://server-30-x-30.herokuapp.com/';
 
@@ -21,23 +21,23 @@ export class ProjectsService {
     return `${this.getUrl()}/${id}`;
   }
 
-  getAll() {
-    return this.httpClient.get(this.getUrl());
+  getAll(): Observable<Project[]> {
+    return this.httpClient.get<Project[]>(this.getUrl());
   }
 
-  getOne(id: number) {
-    return this.httpClient.get(this.getUrlWithId(id));
+  getOne(id: number): Observable<Project> {
+    return this.httpClient.get<Project>(this.getUrlWithId(id));
   }
 
-  createProject(project: Project) {
-    return this.httpClient.post(this.getUrl(), project);
+  createProject(project: Project): Observable<Project> {
+    return this.httpClient.post<Project>(this.getUrl(), project);
   }
 
-  updateProject(project: Project) {
-    return this.httpClient.patch(this.getUrlWithId(project.id), project);
+  updateProject(project: Project): Observable<Project> {
+    return this.httpClient.patch<Project>(this.getUrlWithId(project.id), project);
   }
 
-  deleteProject(project: Project) {
-    return this.httpClient.delete(this.getUrlWithId(project.id));
+  deleteProject(project: Project): Observable<Project> {
+    return this.httpClient.delete<Project>(this.getUrlWithId(project.id));
   }
 }
