@@ -1,1 +1,14 @@
-<p>project works!</p>
+<div class="container">
+  <div class="col-50">
+    <mdv-december-project-list [projects]="projects$ | async" (selected)="selectProject($event)"
+      (deleted)="delete($event)">
+    </mdv-december-project-list>
+  </div>
+
+
+  <div class="col-50">
+    <mdv-december-project-detail [form]="form" [project]="selectedProject$ | async" (saved)="save($event)"
+      (cancelled)="resetProjects()">
+    </mdv-december-project-detail>
+  </div>
+</div>

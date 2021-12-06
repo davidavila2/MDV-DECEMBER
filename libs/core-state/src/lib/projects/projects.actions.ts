@@ -1,5 +1,5 @@
 
-import { ProjectsEntity } from './projects.models';
+// import { ProjectsEntity } from './projects.models';
 
 // export const init = createAction('[Projects Page] Init');
 
@@ -19,12 +19,13 @@ import { Project } from '@mdv-december/core-data'
 export const resetSelectedProject = createAction(
   '[Projects] Reset Selected Project'
 );
+
 export const resetProjects = createAction('[Projects] Reset Projects');
 
 // Select Project
 export const selectProject = createAction(
   '[Projects] Select Project',
-  props<{ selectedId: string }>()
+  props<{ selectedId: number }>()
 );
 
 // Load Projects

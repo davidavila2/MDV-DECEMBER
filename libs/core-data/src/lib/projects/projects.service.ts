@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Project } from '@mdv-december/core-data';
+import { Project } from '../projects/project';
 import { Observable } from 'rxjs';
 
 const BASE_URL = 'https://server-30-x-30.herokuapp.com/';

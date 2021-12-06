@@ -11,6 +11,7 @@ import { ProjectListComponent } from './project/project-list/project-list.compon
 import { MaterialModule } from '@mdv-december/material';
 import { CoreDataModule } from '@mdv-december/core-data';
 import { CoreStateModule } from '@mdv-december/core-state';
+import { RoutingModule } from './routing.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { CoreStateModule } from '@mdv-december/core-state';
     MaterialModule,
     CoreDataModule,
     CoreStateModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent],

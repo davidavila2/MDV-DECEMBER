@@ -7,7 +7,7 @@ import { Project } from '@mdv-december/core-data'
 
 export const PROJECTS_FEATURE_KEY = 'projects';
 
-export interface State extends EntityState<ProjectsEntity> {
+export interface State extends EntityState<Project> {
   selectedId?: string | number; // which Projects record has been selected
   loaded: boolean; // has the Projects list been loaded
   error?: string | null; // last known error (if any)
@@ -18,8 +18,8 @@ export interface ProjectsPartialState {
   readonly [PROJECTS_FEATURE_KEY]: State;
 }
 
-export const projectsAdapter: EntityAdapter<ProjectsEntity> =
-  createEntityAdapter<ProjectsEntity>();
+export const projectsAdapter: EntityAdapter<Project> =
+  createEntityAdapter<Project>();
 
 const onFailure = (state: any, { error }: any) => ({ ...state, error });
 

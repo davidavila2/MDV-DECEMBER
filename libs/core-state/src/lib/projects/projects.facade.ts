@@ -14,9 +14,7 @@ import { Project } from '@mdv-december/core-data';
 export class ProjectsFacade {
   loaded$ = this.store.pipe(select(ProjectsSelectors.getProjectsLoaded));
   allProjects$ = this.store.pipe(select(ProjectsSelectors.getAllProjects));
-  selectedProject$ = this.store.pipe(
-    select(ProjectsSelectors.getSelected)
-  );
+  selectedProject$ = this.store.pipe(select(ProjectsSelectors.getSelected));
 
   mutations$ = this.actions$.pipe(
     filter(
@@ -32,7 +30,7 @@ export class ProjectsFacade {
     private actions$: ActionsSubject
   ) { }
 
-  selectProject(selectedId: string) {
+  selectProject(selectedId: number) {
     this.dispatch(ProjectsActions.selectProject({ selectedId }));
   }
 
