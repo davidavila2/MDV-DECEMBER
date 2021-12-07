@@ -27,7 +27,7 @@ export class ProjectComponent implements OnInit {
 
   resetProjects(): void {
     this.form.reset();
-    this.selectProject(emptyProject)
+    this.selectProject(emptyProject);
   }
 
   selectProject(project: Project): void {
@@ -56,7 +56,7 @@ export class ProjectComponent implements OnInit {
       id: null,
       title: ['', Validators.compose([Validators.required])],
       details: ['', Validators.compose([Validators.required])],
-      importantLevel: ['']
+      importanceLevel: ['']
     });
   }
 }

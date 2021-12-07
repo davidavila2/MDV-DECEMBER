@@ -15,7 +15,6 @@ export class ProjectsFacade {
   loaded$ = this.store.pipe(select(ProjectsSelectors.getProjectsLoaded));
   allProjects$ = this.store.pipe(select(ProjectsSelectors.getAllProjects));
   selectedProject$ = this.store.pipe(select(ProjectsSelectors.getSelected));
-
   mutations$ = this.actions$.pipe(
     filter(
       (action: Action) =>
