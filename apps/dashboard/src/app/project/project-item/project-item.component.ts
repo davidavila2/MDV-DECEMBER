@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Project, emptyProject } from '@mdv-december/core-data';
+import { Project } from '@mdv-december/core-data';
 import { ProjectsFacade } from '@mdv-december/core-state';
 import { Observable } from 'rxjs';
 
@@ -10,15 +10,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./project-item.component.scss']
 })
 export class ProjectItemComponent implements OnInit {
-  _project$: Observable<Project | undefined> = this.projectsFacade.selectedProject$;
-
-  // public get project$(): Project {
-  //   return this._project$;
-  // }
-
-  // public set project$(project: Project) {
-  //   this._project$ = project;
-  // }
+  project$: Observable<Project | undefined> = this.projectsFacade.selectedProject$;
 
   constructor(
     private route: ActivatedRoute,
@@ -29,6 +21,7 @@ export class ProjectItemComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(param => {
       const id = param['id'];
+      this.projectsFacade.selectProject(id)
       this.projectsFacade.loadProject(id);
     })
   }

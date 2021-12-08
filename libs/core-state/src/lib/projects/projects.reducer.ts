@@ -2,8 +2,7 @@ import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
 import { createReducer, on, Action } from '@ngrx/store';
 
 import * as ProjectsActions from './projects.actions';
-import { ProjectsEntity } from './projects.models';
-import { Project } from '@mdv-december/core-data'
+import type { Project } from '@mdv-december/core-data'
 
 export const PROJECTS_FEATURE_KEY = 'projects';
 
@@ -41,40 +40,36 @@ const projectsReducer = createReducer(
   on(ProjectsActions.resetProjects, (state) =>
     projectsAdapter.removeAll(state)
   ),
-  // Load projects
-  on(ProjectsActions.loadProjects, (state) => ({
-    ...state,
-    loaded: false,
-    error: null,
-  })),
+  on(
+    ProjectsActions.loadProject,
+    ProjectsActions.loadProjects,
+    ProjectsActions.createProject,
+    ProjectsActions.updateProject,
+    ProjectsActions.deleteProject,
+    (state) => ({
+      ...state,
+      loaded: false,
+      error: null,
+    })),
+  on(ProjectsActions.loadProjectSuccess, (state, { project }) =>
+    projectsAdapter.addOne(project, { ...state, loaded: true })
+  ),
   on(ProjectsActions.loadProjectsSuccess, (state, { projects }) =>
     projectsAdapter.setAll(projects, { ...state, loaded: true })
   ),
-  on(ProjectsActions.loadProjectsFailure, onFailure),
-  // Load project
-  on(ProjectsActions.loadProject, (state) => ({
-    ...state,
-    loaded: false,
-    error: null,
-  })),
-  on(ProjectsActions.loadProjectSuccess, (state, { project }) =>
-    projectsAdapter.upsertOne(project, { ...state, loaded: true })
-  ),
-  on(ProjectsActions.loadProjectFailure, onFailure),
-  // Add project
   on(ProjectsActions.createProjectSuccess, (state, { project }) =>
     projectsAdapter.addOne(project, state)
   ),
-  on(ProjectsActions.createProjectFailure, onFailure),
-  // Update project
   on(ProjectsActions.updateProjectSuccess, (state, { project }) =>
     projectsAdapter.updateOne({ id: project.id, changes: project }, state)
   ),
-  on(ProjectsActions.updateProjectFailure, onFailure),
-  // Delete project
   on(ProjectsActions.deleteProjectSuccess, (state, { project }) =>
-    projectsAdapter.removeOne(project.id, state)
+    projectsAdapter.removeOne(project.id, { ...state, isLoading: false })
   ),
+  on(ProjectsActions.loadProjectFailure, onFailure),
+  on(ProjectsActions.loadProjectsFailure, onFailure),
+  on(ProjectsActions.createProjectFailure, onFailure),
+  on(ProjectsActions.updateProjectFailure, onFailure),
   on(ProjectsActions.deleteProjectFailure, onFailure)
 );
 

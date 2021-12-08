@@ -22,6 +22,7 @@ export class ProjectComponent implements OnInit {
   ngOnInit(): void {
     this.initForm();
     this.projectsFacade.loadProjects();
+    this.projectsFacade.selectProject('')
     this.projectsFacade.mutations$.subscribe(() => this.resetProjects())
   }
 

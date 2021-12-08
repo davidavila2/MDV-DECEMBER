@@ -5,6 +5,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import * as fromProjects from './projects/projects.reducer';
 import { ProjectsEffects } from './projects/projects.effects';
+import { DataPersistence } from '@nrwl/angular';
 
 @NgModule({
   declarations: [],
@@ -19,5 +20,6 @@ import { ProjectsEffects } from './projects/projects.effects';
     ),
     EffectsModule.forFeature([ProjectsEffects]),
   ],
+  providers: [DataPersistence]
 })
 export class CoreStateModule { }

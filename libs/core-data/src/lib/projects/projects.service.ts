@@ -17,7 +17,7 @@ export class ProjectsService {
     return `${BASE_URL}${this.model}`;
   }
 
-  getUrlWithId(id: number): string {
+  getUrlWithId(id: string): string {
     return `${this.getUrl()}/${id}`;
   }
 
@@ -25,7 +25,7 @@ export class ProjectsService {
     return this.httpClient.get<Project[]>(this.getUrl());
   }
 
-  getOne(id: number): Observable<Project> {
+  getOne(id: string): Observable<Project> {
     return this.httpClient.get<Project>(this.getUrlWithId(id));
   }
 

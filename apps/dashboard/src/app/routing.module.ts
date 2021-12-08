@@ -4,10 +4,9 @@ import { ProjectItemComponent } from './project/project-item/project-item.compon
 import { ProjectComponent } from './project/project.component';
 
 const routes: Routes = [
-  { path: '', component: ProjectComponent },
   { path: 'projects', component: ProjectComponent },
   { path: 'projects/:id', component: ProjectItemComponent },
-  { path: '**', redirectTo: '', pathMatch: 'full' }
+  { path: '**', redirectTo: 'projects', pathMatch: 'full' }
 ];
 
 @NgModule({

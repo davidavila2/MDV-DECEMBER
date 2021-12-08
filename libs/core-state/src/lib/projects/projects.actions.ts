@@ -14,7 +14,7 @@
 // );
 
 import { createAction, props } from '@ngrx/store';
-import { Project } from '@mdv-december/core-data'
+import type { Project } from '@mdv-december/core-data'
 
 export const resetSelectedProject = createAction(
   '[Projects] Reset Selected Project'
@@ -25,7 +25,7 @@ export const resetProjects = createAction('[Projects] Reset Projects');
 // Select Project
 export const selectProject = createAction(
   '[Projects] Select Project',
-  props<{ selectedId: number }>()
+  props<{ selectedId: string }>()
 );
 
 // Load Projects
