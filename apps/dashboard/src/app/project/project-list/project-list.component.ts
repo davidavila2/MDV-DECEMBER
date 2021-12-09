@@ -8,6 +8,7 @@ import { Project } from '@mdv-december/core-data';
 })
 export class ProjectListComponent {
   @Input() projects!: Project[] | null;
+  @Input() loaded = false;
   @Output() selected = new EventEmitter();
   @Output() deleted = new EventEmitter();
 }

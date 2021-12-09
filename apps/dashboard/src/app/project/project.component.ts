@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { emptyProject, Project } from '@mdv-december/core-data';
+import type { Project } from '@mdv-december/core-data';
 import { ProjectsFacade } from '@mdv-december/core-state';
 import { Observable } from 'rxjs';
 
@@ -12,6 +12,7 @@ import { Observable } from 'rxjs';
 export class ProjectComponent implements OnInit {
   form!: FormGroup;
   selectedProject$ = this.projectsFacade.selectedProject$;
+  loaded$ = this.projectsFacade.loaded$
   projects$: Observable<Project[]> = this.projectsFacade.allProjects$;
 
   constructor(
@@ -28,7 +29,7 @@ export class ProjectComponent implements OnInit {
 
   resetProjects(): void {
     this.form.reset();
-    this.selectProject(emptyProject);
+    this.selectProject({} as Project);
   }
 
   selectProject(project: Project): void {
